@@ -4,6 +4,7 @@ import java.io.Serial;
 import java.io.Serializable;
 
 
+@SuppressWarnings ( "unused" )
 public class MessageDTO implements Serializable {
 
 	@Serial
