@@ -20,7 +20,8 @@ public class MessageDTO implements Serializable {
 		this.message = message;
 	}
 
-	@Override public String toString () {
+	@Override
+	public String toString () {
 		return "MessageDTO{" +
 						"message='" + message + '\'' +
 						'}';
