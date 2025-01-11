@@ -2,10 +2,13 @@ package it.simonecelia.weca.service;
 
 import io.quarkus.logging.Log;
 import it.simonecelia.weca.dto.MessageDTO;
+import it.simonecelia.weca.entity.MessageEntity;
 import it.simonecelia.weca.repository.MessageRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+
+import java.util.List;
 
 
 @ApplicationScoped
@@ -46,5 +49,13 @@ public class MessageService {
 		}
 		messageRepository.delete ( message );
 		return true;
+	}
+
+	public List<MessageEntity> getAllMessages () {
+		return messageRepository.listAll ();
+	}
+
+	public void deleteMessages () {
+		messageRepository.deleteAll ();
 	}
 }

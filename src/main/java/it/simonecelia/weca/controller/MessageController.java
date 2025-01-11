@@ -7,6 +7,7 @@ import it.simonecelia.weca.service.MessageService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
@@ -53,16 +54,31 @@ public class MessageController {
 
 	@DELETE
 	@Path ( "/{id}" )
-	@Consumes ( MediaType.APPLICATION_JSON )
 	@Produces ( MediaType.APPLICATION_JSON )
 	public Response deleteMessage ( @PathParam ( "id" ) Long id ) {
-		Log.infof ( "Called Delete Message with payload: %s id: %d", id );
+		Log.infof ( "Called Delete Message with id: %d", id );
 		var deleted = messageService.deleteMessage ( id );
 		if ( deleted ) {
 			return Response.status ( Response.Status.OK ).build ();
 		} else {
 			return Response.status ( Response.Status.UNAUTHORIZED ).build ();
 		}
+	}
+
+	@DELETE
+	@Produces ( MediaType.APPLICATION_JSON )
+	public Response deleteMessages () {
+		Log.infof ( "Called Delete Messages" );
+		messageService.deleteMessages ();
+		return Response.status ( Response.Status.OK ).build ();
+	}
+
+	@GET
+	@Produces ( MediaType.APPLICATION_JSON )
+	public Response getMessages () {
+		Log.info ( "Called Read Messages" );
+		var messages = messageService.getAllMessages ();
+		return Response.status ( Response.Status.OK ).entity ( messages ).build ();
 	}
 
 	private String getIp () {
