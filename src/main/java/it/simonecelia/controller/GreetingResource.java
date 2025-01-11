@@ -1,4 +1,4 @@
-package it.simonecelia;
+package it.simonecelia.controller;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
