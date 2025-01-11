@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 
 @Entity
-@SuppressWarnings ( "unused" )
 public class MessageEntity extends PanacheEntity {
 
 	public LocalDateTime creationTime;
