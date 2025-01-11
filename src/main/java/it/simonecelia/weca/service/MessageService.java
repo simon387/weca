@@ -4,9 +4,11 @@ import it.simonecelia.weca.dto.MessageDTO;
 import it.simonecelia.weca.repository.MessageRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 
 
 @ApplicationScoped
+@Transactional
 public class MessageService {
 
 	@Inject
