@@ -2,6 +2,40 @@
 
 Web Experimental Chat Advanced (back end)
 
+## portable win mysql installation
+
++ download it https://dev.mysql.com/downloads/mysql/
++ create ```my.ini``` in main dir
++ 
+	```
+	[mysqld]
+	port=3306
+	basedir="C:/Users/<your user>/mysql"
+	datadir="C:/Users/<your user>/mysql/data"
+	sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+	```
++ .\mysqld.exe --initialize-insecure --basedir="C:/Users/<your user>/mysql" --datadir="C:/Users/<your user>/mysql/data"
++ .\mysqld.exe -u root --console
++ .\mysql.exe -u root
++
+	```
+	CREATE USER 'simcelia'@'localhost' IDENTIFIED BY 'root';
+	GRANT ALL PRIVILEGES ON *.* TO 'simcelia'@'localhost';
+	FLUSH PRIVILEGES;
+	```
++ .\mysql.exe -u simcelia -p
++ pass is root
+
+---
+
+---
+
+---
+
+---
+
+---
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
