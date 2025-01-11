@@ -1,0 +1,6 @@
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "message": "Test dai"
+}
