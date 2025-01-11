@@ -37,4 +37,14 @@ public class MessageService {
 		messageRepository.persist ( message );
 		return true;
 	}
+
+	public boolean deleteMessage ( Long id ) {
+		var message = messageRepository.findById ( id );
+		if ( message == null ) {
+			Log.infof ( "Message with id %s not found", id );
+			return false;
+		}
+		messageRepository.delete ( message );
+		return true;
+	}
 }
