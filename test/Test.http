@@ -19,9 +19,9 @@ Content-Type: application/json
 DELETE {{baseUrl}}/1
 
 ### read all
-GET POST {{baseUrl}}
+GET {{baseUrl}}
 
 ### delete all
 
-DELETE POST {{baseUrl}}
+DELETE {{baseUrl}}
 
