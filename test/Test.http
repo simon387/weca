@@ -1,6 +1,27 @@
+### create
 POST {{baseUrl}}
 Content-Type: application/json
 
 {
   "message": "Test dai"
 }
+
+### update
+PUT {{baseUrl}}?id?1
+Content-Type: application/json
+
+{
+  "message": "Test dai"
+}
+
+### delete
+
+DELETE POST {{baseUrl}}?id?1
+
+### read all
+GET POST {{baseUrl}}
+
+### delete all
+
+DELETE POST {{baseUrl}}
+
