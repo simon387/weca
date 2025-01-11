@@ -65,6 +65,10 @@
 			<artifactId>rest-assured</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency><!-- per ottenere l'indirzzo IP -->
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-undertow</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
