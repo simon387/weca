@@ -6,6 +6,7 @@ import it.simonecelia.weca.dto.MessageDTO;
 import it.simonecelia.weca.service.MessageService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
@@ -44,6 +45,20 @@ public class MessageController {
 		Log.infof ( "Called Modify Message with payload: %s id: %d from IP: %s", messageDTO, id, clientIp );
 		var updated = messageService.modifyMessage ( clientIp, id, messageDTO );
 		if ( updated ) {
+			return Response.status ( Response.Status.OK ).build ();
+		} else {
+			return Response.status ( Response.Status.UNAUTHORIZED ).build ();
+		}
+	}
+
+	@DELETE
+	@Path ( "/{id}" )
+	@Consumes ( MediaType.APPLICATION_JSON )
+	@Produces ( MediaType.APPLICATION_JSON )
+	public Response deleteMessage ( @PathParam ( "id" ) Long id ) {
+		Log.infof ( "Called Delete Message with payload: %s id: %d", id );
+		var deleted = messageService.deleteMessage ( id );
+		if ( deleted ) {
 			return Response.status ( Response.Status.OK ).build ();
 		} else {
 			return Response.status ( Response.Status.UNAUTHORIZED ).build ();
