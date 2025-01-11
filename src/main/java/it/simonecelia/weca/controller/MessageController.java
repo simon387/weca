@@ -7,7 +7,9 @@ import it.simonecelia.weca.service.MessageService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
@@ -30,7 +32,22 @@ public class MessageController {
 		var clientIp = getIp ();
 		Log.infof ( "Called Create Message with payload: %s from IP: %s", messageDTO, clientIp );
 		messageService.createMessage ( clientIp, messageDTO );
-		return Response.accepted ().build ();
+		return Response.status ( Response.Status.CREATED ).build ();
+	}
+
+	@PUT
+	@Path ( "/{id}" )
+	@Consumes ( MediaType.APPLICATION_JSON )
+	@Produces ( MediaType.APPLICATION_JSON )
+	public Response modifyMessage ( MessageDTO messageDTO, @PathParam ( "id" ) Long id ) {
+		var clientIp = getIp ();
+		Log.infof ( "Called Modify Message with payload: %s id: %d from IP: %s", messageDTO, id, clientIp );
+		var updated = messageService.modifyMessage ( clientIp, id, messageDTO );
+		if ( updated ) {
+			return Response.status ( Response.Status.OK ).build ();
+		} else {
+			return Response.status ( Response.Status.UNAUTHORIZED ).build ();
+		}
 	}
 
 	private String getIp () {
