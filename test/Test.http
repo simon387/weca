@@ -3,7 +3,7 @@ POST {{baseUrl}}
 Content-Type: application/json
 
 {
-  "message": "Test dai"
+  "message": "lorem impu"
 }
 
 ### update

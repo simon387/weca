@@ -25,6 +25,7 @@ Web Experimental Chat Advanced (back end)
 	```
 + .\mysql.exe -u simcelia -p
 + pass is root
++ start: .\mysqld.exe --console
 
 ---
 
