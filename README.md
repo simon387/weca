@@ -27,6 +27,20 @@ Web Experimental Chat Advanced (back end)
 + pass is root
 + start: .\mysqld.exe --console
 
+php config:
+```injectablephp
+<?php
+// config.php
+return [
+	'database' => [
+		'host' => 'localhost',
+		'name' => 'weca',
+		'username' => 'your_username',
+		'password' => 'your_password'
+	]
+];
+```
+
 ---
 
 ---
